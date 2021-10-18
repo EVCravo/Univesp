@@ -5,7 +5,7 @@ from django import forms
 class MyCommentForm(forms.ModelForm):
     class Meta(object):
         model = Paciente
-        fields = ['name', 'email', 'message', 'address', 'responsavel',]
+        fields = ['name', 'email', 'message', 'address', 'responsavel','idade']
         widgets = {
     'name': forms.TextInput(
     attrs={
@@ -16,6 +16,12 @@ class MyCommentForm(forms.ModelForm):
     attrs={
      'class': 'form-control'
      }
+    ),
+    'idade': forms.DateTimeInput(
+    attrs={
+     'class': 'form-control',
+     'type': 'date'
+    }
     ),
     'address': forms.TextInput(
     attrs={

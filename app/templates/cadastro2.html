@@ -1,22 +1,8 @@
-<DOCTYPE html>
-<html>
-<head>
-<title>Django Forms</title>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-<body>
-<div class="jumbotron jumbotron-sm">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-lg-12">
-                <h1 class="h1">Contact us <small>Feel free to contact us</small></h1>
-    <p style="font-weight:bold;color:red;">Django Model Forms - How to use bootstrap in django forms</p>
-            </div>
-        </div>
-    </div>
-</div>
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}   
+
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -37,8 +23,7 @@
                         </div>
                         <div class="form-group" >
                             <label for="idade">
-                                Data de Nascimento : &nbsp;&nbsp; </label>
-                            <input type="date">
+                                Data de Nascimento :</label>
                             {{ form.idade }}
                         </div>
                         <div class="form-group">
@@ -64,7 +49,7 @@
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                            Send Message</button>
+                            Salvar</button>
                     </div>
                 </div>
                 </form>
@@ -75,3 +60,4 @@
 </div>
 </body>
 </html>
+{% endblock %}
