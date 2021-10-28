@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block contentlista %}
+{% load static %}   
+
+
+<div class="container">
+        <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <a href="../cadastro"><button type="button"  class="btn btn-primary  btn-sm" >Cadastrar Paciente</button></a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered display responsive nowrap text-center" id="my_table" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Responsavel</th>
+                            <th>Número</th>
+                    </thead>
+                    <tbody>
+                        {% for p in paciente %}
+                        <tr>
+                            <td> {{ p.name }}</td>
+                            <td> {{ p.responsavel }}</td>
+                            <td> {{ p.phone }}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</body>
+</html>
+{% endblock %}
