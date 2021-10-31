@@ -45,10 +45,6 @@ def cadastro(request):
         return render(request, "cadastro2.html", {'form': form})
 
 
-
-
-
-
 @login_required(login_url='../login')
 
 def Lista(request):

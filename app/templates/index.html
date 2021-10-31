@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{% load static %} 
+<br>
+
+<div class="container">
+  
+  <form class="row g-3" action="{% url 'index' %}" method="POST">
+    {% csrf_token %}
+
+    <div class="row">
+      <div class="col">
+        <center>
+        <label class="form-label">Primeiro, pesquise se o paciente já possui cadastro aqui no CMRA-CHAT.</label><br>
+        <label class="form-label">Há duas maneiras de pesquisar: pelo número de prontuário ou pelo CPF.</label>
+        <label class="form-label">Escolha um do métodos:</label>
+        </center>
+        <br>
+      </div>
+    </div>
+      
+    <div class="row">
+      <div class="col">
+        <label for="pesqpront" class="form-label">Pesquisa por prontuário:</label>
+        <input type="text" class="form-control" id="pesqpront"><br>
+      </div>
+
+      <div class="col">
+        <label for="pesqcpf" class="form-label">Pesquisa pelo CPF:</label>
+        <input type="text" class="form-control" id="pesqcpf"><br>
+      </div>
+    </div> 
+
+    <div class="row">
+      <div class="col-12">
+        <br>
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+      </div>
+    </div>
+
+  </form><br>
+</div> 
+<br>
+{% endblock %}
+   
+    
