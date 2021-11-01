@@ -8,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import Paciente
 
-
 def loginUser(request):
     if request.POST:
         username = request.POST['user']
@@ -17,22 +16,24 @@ def loginUser(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return index(request)
-    return render(request, 'app/login.html', {})  
+                return lista(request)
+    return render(request, 'logon.html', {})  
 
-@login_required(login_url='../login')
+
+def logon(request):
+    return render(request, "logon.html", {})
+
+
+@login_required(login_url='../logon')
 def logoutUser(request):
     logout(request) 
     return loginUser(request)
 
-
-@login_required(login_url='../login')
+@login_required(login_url='../logon')
 def index(request):
-    return render(request, 'app/index.html', {'user': request.user })
-
+    return lista(request)
 
 def cadastro(request):
-  
     if request.method == "POST":
         form = MyCommentForm(request.POST)
         if form.is_valid():
@@ -45,9 +46,8 @@ def cadastro(request):
         return render(request, "cadastro2.html", {'form': form})
 
 
-@login_required(login_url='../login')
-
-def Lista(request):
+@login_required(login_url='../logon')
+def lista(request):
     paciente = Paciente.objects.all()
     
     return render(request, 'lista.html', {'paciente': paciente})

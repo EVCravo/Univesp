@@ -20,10 +20,13 @@ from django.urls import path
 
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
+    path('', views.logon, name="logon"),
+    path('login', views.loginUser, name="login"),
     path('index/', views.index, name="index"),
     path('cadastro/', views.cadastro, name="cadastro"),
-    path('lista/', views.Lista, name="lista"),
+    path('lista/', views.lista, name="lista"),
     path('questionario/', views.questionario, name="questionario"),
     
     
