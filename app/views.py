@@ -45,10 +45,6 @@ def cadastro(request):
         return render(request, "cadastro2.html", {'form': form})
 
 
-
-
-
-
 @login_required(login_url='../login')
 
 def Lista(request):
@@ -56,5 +52,6 @@ def Lista(request):
     
     return render(request, 'lista.html', {'paciente': paciente})
 
-
+def questionario(request):
+    return render(request, 'questionario.html',)
 
