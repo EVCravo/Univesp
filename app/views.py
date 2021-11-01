@@ -52,6 +52,17 @@ def lista(request):
     
     return render(request, 'lista.html', {'paciente': paciente})
 
+##def questionario(request, id):
 def questionario(request):
-    return render(request, 'questionario.html',)
+    # paciente = Paciente.objects.get(id=id)
+    # Questionario.pegun1 = request.POST.get('numero1')
+    # Questionario.pegun1 = request.POST.get('numero1')
+    # Questionario.pegun1 = request.POST.get('numero4')
+    # Questionario.pegun1 = request.POST.get('numero3')
+    # Questionario.pegun1 = request.POST.get('numero2')
+    # ......
+    # Questionario.paciente = paciente
+    # Questionario.sabe()
+    #return render(request, 'questionario.html',{"paciente":paciente})
+    return render(request, 'questionario.html',{})
 

@@ -13,3 +13,12 @@ class Paciente(models.Model):
 
     def __str__(self):
         return self.name
+
+# class questionario(models.Model):
+#     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE,blank=True, null=True))
+#     numero1 = models.boo("Nome", max_length=255, blank = True, null = True)
+#     numero1 = models.boo("Nome", max_length=255, blank = True, null = True)
+#     numero1 = models.boo("Nome", max_length=255, blank = True, null = True)
+
+
+

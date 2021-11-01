@@ -16,6 +16,7 @@
                             <th>Nome</th>
                             <th>Responsavel</th>
                             <th>Número</th>
+                            <!-- <th></th> -->
                     </thead>
                     <tbody>
                         {% for p in paciente %}
@@ -23,7 +24,7 @@
                             <td> {{ p.name }}</td>
                             <td> {{ p.responsavel }}</td>
                             <td> {{ p.phone }}</td>
-                            
+                            <!-- <td> <a href="../../questionario/{{p.id}}">Questionario</a> </td> -->
                         </tr>
                         {% endfor %}
                     </tbody>
