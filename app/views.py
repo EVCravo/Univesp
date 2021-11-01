@@ -52,5 +52,6 @@ def Lista(request):
     
     return render(request, 'lista.html', {'paciente': paciente})
 
-
+def questionario(request):
+    return render(request, 'questionario.html',)
 
