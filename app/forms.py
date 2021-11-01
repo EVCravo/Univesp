@@ -1,11 +1,20 @@
 from django.forms import ModelForm
-from app.models import Paciente
+from django.forms.widgets import RadioSelect
+from app.models import Paciente, Questionario
 from django import forms
    
+class MyCommentFormchoices(forms.ModelForm):
+
+    class Meta(object):
+        model = Questionario
+        fields = '__all__'
+
+        
+
 class MyCommentForm(forms.ModelForm):
     class Meta(object):
         model = Paciente
-        fields = ['name', 'email', 'message', 'address', 'responsavel','idade','phone']
+        fields = ['name', 'email', 'message', 'address', 'responsavel','idade','phone',]
         widgets = {
     'name': forms.TextInput(
     attrs={
@@ -47,3 +56,5 @@ class MyCommentForm(forms.ModelForm):
      }
     ),
    }
+
+  

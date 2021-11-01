@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}  
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +20,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #04AA6D;
+  background-color: #0000FF;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -45,7 +48,7 @@ button:hover {
 }
 
 img.avatar {
-  width: 40%;
+  width: 50%;
   border-radius: 50%;
 }
 
@@ -78,7 +81,7 @@ span.psw {
   background-color: #fefefe;
   margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 100%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
@@ -126,10 +129,10 @@ span.psw {
 </style>
 </head>
 <body>
+<div class="container">
 
-<h2>Modal Login Form</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+<center><button onclick="document.getElementById('id01').style.display='block'"  class="btn btn-primary  btn-lg" style="width:auto;">Login</button><center>
 
 <div id="id01" class="modal">
   
@@ -137,7 +140,7 @@ span.psw {
     {% csrf_token %}
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      <img src="{% static 'img/avatar.png' %}" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
@@ -159,7 +162,7 @@ span.psw {
     </div>
   </form>
 </div>
-
+</div>
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
@@ -174,3 +177,4 @@ window.onclick = function(event) {
 
 </body>
 </html>
+{% endblock %}
