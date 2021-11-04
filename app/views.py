@@ -41,7 +41,7 @@ def cadastro(request):
             model_instance = form.save(commit=False)
             model_instance.timestamp = timezone.now()
             model_instance.save()
-            return redirect('/cadastro')
+            return redirect('/lista')
     else:
         form = MyCommentForm()
         return render(request, "cadastro2.html", {'form': form})
@@ -52,6 +52,10 @@ def lista(request):
     paciente = Paciente.objects.all()
     
     return render(request, 'lista.html', {'paciente': paciente})
+
+
+
+
 
 # def questionario(request):
 #     paciente = Paciente.objects.get()
@@ -68,13 +72,20 @@ def lista(request):
 #     Questionario.save()
 #     return render(request, 'questionario.html',{"paciente":paciente})
     
-def questionario(request):
+def questionario(request, paciente_id):
+    if request.method == 'GET':
+        form = MyCommentFormchoices(request.GET)
+        if paciente_id:
+            paciente = Paciente.objects.get(pk=paciente_id)
+            return render(request, 'questionario.html', {'paciente': paciente, 'form': form})
+        return render(request, 'questionario.html', {'form': form})
     if request.method == "POST":
         form = MyCommentFormchoices(request.POST)
         if form.is_valid():
-            model_instance = form.save(commit=False)
-            model_instance.save()
+            model_instancechoices = form.save(commit=False)
+            model_instancechoices.timestamp = timezone.now()
+            model_instancechoices.save()
             return redirect('/lista')
     else:
         form = MyCommentFormchoices()
-        return render(request, "questionario.html", {'form': form})
+        return render(request, "cadastro2.html", {'form': form})

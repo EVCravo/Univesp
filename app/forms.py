@@ -6,15 +6,16 @@ from django import forms
 class MyCommentFormchoices(forms.ModelForm):
 
     class Meta(object):
+        escolha = (('Sim', 'Sim'), ('Não', 'Não'))
         model = Questionario
         fields = '__all__'
-
+        
         
 
 class MyCommentForm(forms.ModelForm):
     class Meta(object):
         model = Paciente
-        fields = ['name', 'email', 'message', 'address', 'responsavel','idade','phone',]
+        fields = ['name', 'email', 'message', 'address', 'responsavel','idade','phone']
         widgets = {
     'name': forms.TextInput(
     attrs={
