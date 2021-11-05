@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}   
+
+<form method="POST">
+{% csrf_token %}
+<div class="card text-center">
+  <div class="card-header">
+    Excluir
+  </div>
+  <div class="card-body">
+    <p>Você tem certeza que deseja excluir o paciente <b>{{ paciente.name }}</b></p>
+    
+    <div>
+        <button type="submit" class="btn btn-white" ><a href="{% url 'lista_paciente' %}">Cancelar</a></button>
+        <button type="submit" class="btn btn-danger">Excluir</button>
+    </div>
+  </div>
+
+</div>
+</form>
+
+
+{% endblock %}

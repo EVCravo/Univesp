@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}   
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form action="" method="POST" role="form">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Nome :</label>
+                            {{ form.name }}
+                        </div>
+                        <div class="form-group">
+                            <label for="responsavel">
+                                Nome do Responsavel :</label>
+                            {{ form.responsavel }}
+                        </div>
+                        <div class="form-group" >
+                            <label for="idade">
+                                Data de Nascimento :</label>
+                            {{ form.idade }}
+                        </div>
+                        <div class="form-group">
+                            <label for="address">
+                                Endereço :</label>
+                            {{ form.address }}
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">
+                                Telefone :</label>
+                            {{ form.phone }}
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email :</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                {{ form.email }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="mensagem">
+                                Observações</label>
+                            {{ form.message }}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Salvar</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+       
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

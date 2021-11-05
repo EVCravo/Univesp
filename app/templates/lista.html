@@ -13,10 +13,12 @@
                 <table class="table table-bordered display responsive nowrap text-center" id="my_table" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Responsavel</th>
-                            <th>Número</th>
-                            <th>Questionário</th>
+                            <th><center>Nome</center></th>
+                            <th><center>Responsavel</center></th>
+                            <th><center>Número</center></th>
+                            <th><center>Questionário</center></th>
+                            <th><center>Atualizar</center></th>
+                            <th><center>Excluir</center></th>
                     </thead>
                     <tbody>
                         {% for p in paciente %}
@@ -24,7 +26,9 @@
                             <td> {{ p.name }}</td>
                             <td> {{ p.responsavel }}</td>
                             <td> {{ p.phone }}</td>
-                            <td> <a href="../../questionario/{{p.id}}">Questionario</a> </td>
+                            <td> <a href="../../questionario/{{p.id}}"><button type="button"  class="btn btn-primary  btn-sm" >Questionário</button></a></td>
+                            <td> <a href="../../atualiza/{{p.id}}"><button type="button"  class="btn btn-success  btn-sm" >Atualizar</button></a> </td>
+                            <td> <a href="../cadastro/exclui/{{p.id}}"><button type="button"  class="btn btn-danger  btn-sm" >Excluir</button></a> </td>
                         </tr>
                         {% endfor %}
                     </tbody>
@@ -33,6 +37,6 @@
                     </div>
                 </div>
             </div>
-            </div>
+            
 
 {% endblock %}

@@ -8,6 +8,10 @@ from app.forms import MyCommentForm, MyCommentFormchoices
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from .models import Paciente, Questionario
+from django.views.generic import ListView
+from django.views.generic.edit import DeleteView, UpdateView, CreateView
+from django.urls import reverse_lazy
+
 
 def loginUser(request):
     if request.POST:
@@ -47,14 +51,37 @@ def cadastro(request):
         return render(request, "cadastro2.html", {'form': form})
 
 
-@login_required(login_url='../logon')
-def lista(request):
-    paciente = Paciente.objects.all()
+# @login_required(login_url='../logon')
+# def lista(request):
+#     paciente = Paciente.objects.all()
     
-    return render(request, 'lista.html', {'paciente': paciente})
+#     return render(request, 'lista.html', {'paciente': paciente})
 
 
 
+class ListaPaciente(ListView):
+    template_name = "lista.html"
+    model = Paciente
+    context_object_name = "paciente"
+
+
+
+class PacienteUpdateView(UpdateView):
+    template_name = "atualiza.html"
+    model = Paciente
+    fields = '__all__'
+    context_object_name = 'paciente'
+    success_url = reverse_lazy('lista_paciente')
+
+
+class PacienteDeleteView(DeleteView):
+    template_name = "exclui.html"
+    model = Paciente
+    fields = '__all__'
+    context_object_name = 'paciente'
+    success_url = reverse_lazy('lista_paciente')
+
+    
 
 
 # def questionario(request):
@@ -72,20 +99,22 @@ def lista(request):
 #     Questionario.save()
 #     return render(request, 'questionario.html',{"paciente":paciente})
     
-def questionario(request, paciente_id):
-    if request.method == 'GET':
-        form = MyCommentFormchoices(request.GET)
-        if paciente_id:
-            paciente = Paciente.objects.get(pk=paciente_id)
-            return render(request, 'questionario.html', {'paciente': paciente, 'form': form})
-        return render(request, 'questionario.html', {'form': form})
-    if request.method == "POST":
-        form = MyCommentFormchoices(request.POST)
-        if form.is_valid():
-            model_instancechoices = form.save(commit=False)
-            model_instancechoices.timestamp = timezone.now()
-            model_instancechoices.save()
-            return redirect('/lista')
-    else:
-        form = MyCommentFormchoices()
-        return render(request, "cadastro2.html", {'form': form})
+# def questionario(request, paciente_id):
+#     if request.method == 'GET':
+#         form = MyCommentFormchoices(request.GET)
+#         if paciente_id:
+#             paciente = Paciente.objects.get(pk=paciente_id)
+#             return render(request, 'questionario.html', {'paciente': paciente, 'form': form})
+#         return render(request, 'questionario.html', {'form': form})
+#     if request.method == "POST":
+#         form = MyCommentFormchoices(request.POST)
+#         if form.is_valid():
+#             model_instancechoices = form.save(commit=False)
+#             model_instancechoices.timestamp = timezone.now()
+#             model_instancechoices.save()
+#             return redirect('/lista')
+#     else:
+#         form = MyCommentFormchoices()
+#         return render(request, "cadastro2.html", {'form': form})
+
+

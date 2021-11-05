@@ -11,22 +11,14 @@
       $('#telefone').mask('(00) 0000-0000');
       });
     </script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <title>CMRA</title>
-    <style>
-      .bg{
-       
-        
-        background-attachment:fixed;
-        background-size:100%;
-        background-repeat:no-repeat;
-
-        
-        }
+    
 
       
         
@@ -35,34 +27,31 @@
   </head>
   <body>
   </br>
-    <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <a class="navbar-brand" href="../lista">CMRA</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                
-            </ul>
+              </ul>
             
-            </div>
-        </div>
-        </nav>
+              </div>
+        
+      </nav>
         <center><img src="{% static 'img/logo.png' %}" ></div></center>
         <br>
         {% block contentlista %} {% endblock %}
         {% block content %} {% endblock %}
         </br>
-        <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; CMRA 2021</span>
-                        <span><b>Endereço:</b> Rua Nove de Julho, 3700 Em frente à, Praça João Bernal - Vila Girassol, Araraquara - SP, 14802-277</span>
-                        <p><b>Telefone:</b> (16) 3335-9463</p>
-                    </div>
-                </div>
+        <footer class="footer navbar-fixed-bottom bg-primary" id="footer">             
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; CMRA 2021</span>
+              <span><b>Endereço:</b> Rua Nove de Julho, 3700 Em frente à, Praça João Bernal - Vila Girassol, Araraquara - SP, 14802-277</span>
+                <p><b>Telefone:</b> (16) 3335-9463</p>
+          </div>
         </footer>
     </div>
     
