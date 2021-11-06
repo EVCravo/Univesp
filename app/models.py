@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Paciente(models.Model):
+    
     name = models.CharField("Nome", max_length=255, blank = True, null = True)
     responsavel = models.CharField("responsavel", max_length=255, blank = True, null = True)
     idade = models.DateField('idade', blank = True, null = True)
@@ -40,6 +41,11 @@ class Questionario(models.Model):
     vinteum = models.CharField("vinteum", max_length=10, choices=escolha, blank = True, null = True)
     vintedois = models.CharField("vintedois", max_length=10, choices=escolha, blank = True, null = True)
     vintetres = models.CharField("vintetres", max_length=10, choices=escolha, blank = True, null = True)
+
+    
+
+    def __str__(self):
+        return self.paciente.name
 
 
 

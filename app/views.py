@@ -1,6 +1,7 @@
 
+from re import template
 from django.shortcuts import render, redirect
- 
+from django.http import HttpResponse, Http404
 # Create your views here.
 from django import forms
 from django.utils import timezone
@@ -38,24 +39,24 @@ def logoutUser(request):
 def index(request):
     return lista(request)
 
-def cadastro(request):
-    if request.method == "POST":
-        form = MyCommentForm(request.POST)
-        if form.is_valid():
-            model_instance = form.save(commit=False)
-            model_instance.timestamp = timezone.now()
-            model_instance.save()
-            return redirect('/lista')
-    else:
-        form = MyCommentForm()
-        return render(request, "cadastro2.html", {'form': form})
-
-
-# @login_required(login_url='../logon')
-# def lista(request):
-#     paciente = Paciente.objects.all()
+# def Questionario(request, paciente_id):
+#     form = MyCommentFormchoices()
+#     if request.method == "POST":
+#         form = MyCommentFormchoices(request.POST)
+#         if form.is_valid():
+#             questionario = form.save(commit=False)
+#             questionario.paciente_id = paciente_id
+#             questionario.save()
+#             return redirect('/lista')
     
-#     return render(request, 'lista.html', {'paciente': paciente})
+#     return render(request, "questionario.html", {'form': form})
+
+
+@login_required(login_url='../logon')
+def lista(request):
+    paciente = Paciente.objects.all()
+    
+    return render(request, 'lista.html', {'paciente': paciente})
 
 
 
@@ -80,6 +81,34 @@ class PacienteDeleteView(DeleteView):
     fields = '__all__'
     context_object_name = 'paciente'
     success_url = reverse_lazy('lista_paciente')
+
+
+class QuestionarioCreateView(CreateView):
+    template_name = 'questionario.html'
+    paciente = Paciente.objects.all()
+    model = Questionario
+    fiels = '__all__'
+    form_class = MyCommentFormchoices
+    success_url = reverse_lazy('lista_paciente')
+
+
+class PacienteCreateView(CreateView):
+    template_name = 'cadastro2.html'
+    model = Paciente
+    fiels = '__all__'
+    form_class = MyCommentForm
+    success_url = reverse_lazy('lista_paciente')
+
+
+# def RelacionalPacienteQuestionario(request, paciente_id):
+#     try:
+#         questionario = Questionario.objects.get(paciente_id)
+#     except Questionario.DoesNotExist:
+#         raise Http404
+#     return render(request, 'lista.html', {'questionario':questionario})
+        
+
+
 
     
 
@@ -115,6 +144,6 @@ class PacienteDeleteView(DeleteView):
 #             return redirect('/lista')
 #     else:
 #         form = MyCommentFormchoices()
-#         return render(request, "cadastro2.html", {'form': form})
+#         return render(request, "questionario.html", {'form': form})
 
 
