@@ -15,7 +15,7 @@ class MyCommentFormchoices(forms.ModelForm):
 class MyCommentForm(forms.ModelForm):
     class Meta(object):
         model = Paciente
-        fields = ['name', 'email', 'message', 'address', 'responsavel','idade','phone']
+        fields = ['name', 'email', 'message', 'address', 'responsavel','idade','phone','prontuario', 'name','cpf']
         widgets = {
     'name': forms.TextInput(
     attrs={
@@ -55,6 +55,18 @@ class MyCommentForm(forms.ModelForm):
     attrs={
      'class': 'form-control'
      }
+    ),
+    'prontuario': forms.TextInput(
+    attrs={
+    'class': 'form-control',
+    'type': 'int'
+    }
+    ),
+    'cpf': forms.TextInput(
+    attrs={
+    'class': 'form-control',
+    'type': 'int'
+    }
     ),
    }
 

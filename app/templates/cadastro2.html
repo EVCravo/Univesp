@@ -9,12 +9,15 @@
             <div class="well well-sm">
                 <form action="" method="POST" role="form">
                 {% csrf_token %}
-                <div class="row">
+                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="name">
                                 Nome :</label>
                             {{ form.name }}
+                            <label for="prontuario">
+                                Prontuário: </label>
+                            {{ form.prontuario }}
                         </div>
                         <div class="form-group">
                             <label for="responsavel">
@@ -42,19 +45,26 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                {{ form.email }}</div>
+                                {{ form.email }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf">
+                                CPF :</label>
+                            {{ form.cpf }}
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="mensagem">
-                                Observações</label>
+                            <label for="message">
+                                Observações: </label>
                             {{ form.message }}
                         </div>
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
                             Salvar</button>
+                            </button>
                     </div>
                 </div>
                 </form>

@@ -45,7 +45,6 @@ def index(request):
 #         form = MyCommentFormchoices(request.POST)
 #         if form.is_valid():
 #             questionario = form.save(commit=False)
-#             questionario.paciente_id = paciente_id
 #             questionario.save()
 #             return redirect('/lista')
     
@@ -100,12 +99,9 @@ class PacienteCreateView(CreateView):
     success_url = reverse_lazy('lista_paciente')
 
 
-# def RelacionalPacienteQuestionario(request, paciente_id):
-#     try:
-#         questionario = Questionario.objects.get(paciente_id)
-#     except Questionario.DoesNotExist:
-#         raise Http404
-#     return render(request, 'lista.html', {'questionario':questionario})
+def RelacionalPacienteQuestionario(request, paciente_id):
+    questionario = Questionario.objects.filter(paciente_id)
+    return render(request, 'lista.html', {'questionario':questionario})
         
 
 
