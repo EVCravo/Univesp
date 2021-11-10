@@ -4,7 +4,6 @@ from app.models import Paciente, Questionario
 from django import forms
    
 class MyCommentFormchoices(forms.ModelForm):
-
     class Meta(object):
         escolha = (('Sim', 'Sim'), ('Não', 'Não'))
         model = Questionario

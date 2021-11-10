@@ -84,7 +84,6 @@ class PacienteDeleteView(DeleteView):
 
 class QuestionarioCreateView(CreateView):
     template_name = 'questionario.html'
-    paciente = Paciente.objects.all()
     model = Questionario
     fiels = '__all__'
     form_class = MyCommentFormchoices
@@ -99,8 +98,9 @@ class PacienteCreateView(CreateView):
     success_url = reverse_lazy('lista_paciente')
 
 
-def RelacionalPacienteQuestionario(request, paciente_id):
-    questionario = Questionario.objects.filter(paciente_id)
+def RelacionalPacienteQuestionario(request, id):
+    questionario = Questionario.objects.get(id)
+    questionario.save()
     return render(request, 'lista.html', {'questionario':questionario})
         
 
