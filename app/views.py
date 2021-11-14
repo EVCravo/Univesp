@@ -1,6 +1,6 @@
 
 from re import template
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.http import HttpResponse, Http404
 # Create your views here.
 from django import forms
@@ -40,7 +40,6 @@ def index(request):
     return lista(request)
 
 # def Questionario(request, paciente_id):
-#     form = MyCommentFormchoices()
 #     if request.method == "POST":
 #         form = MyCommentFormchoices(request.POST)
 #         if form.is_valid():
@@ -88,6 +87,7 @@ class QuestionarioCreateView(CreateView):
     fiels = '__all__'
     form_class = MyCommentFormchoices
     success_url = reverse_lazy('lista_paciente')
+        
 
 
 class PacienteCreateView(CreateView):
@@ -98,31 +98,76 @@ class PacienteCreateView(CreateView):
     success_url = reverse_lazy('lista_paciente')
 
 
-def RelacionalPacienteQuestionario(request, id):
-    questionario = Questionario.objects.get(id)
-    questionario.save()
-    return render(request, 'lista.html', {'questionario':questionario})
+# def RelacionalPacienteQuestionario(request, id):
+#     questionario = Questionario.objects.get(id)
+#     questionario.save()
+#     return render(request, 'lista.html', {'questionario':questionario})
         
 
 
-
+def RelacionalPacienteQuestionario(request, id):
+    print(id)
+    paciente = Paciente.objects.get(id)
+    questionario = Questionario()
+    Questionario.um = request.POST.get('um')
+    Questionario.dois = request.POST.get('dois')
+    Questionario.tres = request.POST.get('tres')
+    Questionario.quatro = request.POST.get('quatro')
+    Questionario.cinco = request.POST.get('cinco')
+    Questionario.seis = request.POST.get('seis')
+    Questionario.sete = request.POST.get('sete')
+    Questionario.oito = request.POST.get('oito')
+    Questionario.nove = request.POST.get('nove')
+    Questionario.dez = request.POST.get('dez')
+    Questionario.onze = request.POST.get('onze')
+    Questionario.dose = request.POST.get('dose')
+    Questionario.treze = request.POST.get('treze')
+    Questionario.quatorze = request.POST.get('quatorze')
+    Questionario.quinze = request.POST.get('quinze')
+    Questionario.desesseis = request.POST.get('desesseis')
+    Questionario.desessete = request.POST.get('desessete')
+    Questionario.dezoito = request.POST.get('dezoito')
+    Questionario.dezenove = request.POST.get('dezenove')
+    Questionario.vinte = request.POST.get('vinte')
+    Questionario.vinteum = request.POST.get('vinteum')
+    Questionario.vintedois = request.POST.get('vintedois')
+    Questionario.vintetres = request.POST.get('vintetres')    
+    questionario.paciente = paciente
+    questionario.save()
+    return render(request, 'lista.html', {'questionario':questionario})
     
 
 
-# def questionario(request):
-#     paciente = Paciente.objects.get()
-#     Questionario.um = request.POST.get('um')
-#     Questionario.dois = request.POST.get('dois')
-#     Questionario.tres = request.POST.get('tres')
-#     Questionario.quatro = request.POST.get('quatro')
-#     Questionario.cinco = request.POST.get('cinco')
-#     Questionario.seis = request.POST.get('seis')
-    
-    
-    
-#     Questionario.paciente = paciente
-#     Questionario.save()
-#     return render(request, 'questionario.html',{"paciente":paciente})
+def Questionariosave(request, paciente_id):
+    if request.method == 'POST':
+
+        paciente = Paciente.objects.get(pk=paciente_id)
+        Questionario.um = request.POST.get('um')
+        Questionario.dois = request.POST.get('dois')
+        Questionario.tres = request.POST.get('tres')
+        Questionario.quatro = request.POST.get('quatro')
+        Questionario.cinco = request.POST.get('cinco')
+        Questionario.seis = request.POST.get('seis')
+        Questionario.sete = request.POST.get('sete')
+        Questionario.oito = request.POST.get('oito')
+        Questionario.nove = request.POST.get('nove')
+        Questionario.dez = request.POST.get('dez')
+        Questionario.onze = request.POST.get('onze')
+        Questionario.dose = request.POST.get('dose')
+        Questionario.treze = request.POST.get('treze')
+        Questionario.quatorze = request.POST.get('quatorze')
+        Questionario.quinze = request.POST.get('quinze')
+        Questionario.desesseis = request.POST.get('desesseis')
+        Questionario.desessete = request.POST.get('desessete')
+        Questionario.dezoito = request.POST.get('dezoito')
+        Questionario.dezenove = request.POST.get('dezenove')
+        Questionario.vinte = request.POST.get('vinte')
+        Questionario.vinteum = request.POST.get('vinteum')
+        Questionario.vintedois = request.POST.get('vintedois')
+        Questionario.vintetres = request.POST.get('vintetres')  
+        Questionario.paciente = paciente
+        Questionario.save()
+    return render(request, 'questionario.html',{"paciente":paciente})
     
 # def questionario(request, paciente_id):
 #     if request.method == 'GET':
@@ -135,7 +180,6 @@ def RelacionalPacienteQuestionario(request, id):
 #         form = MyCommentFormchoices(request.POST)
 #         if form.is_valid():
 #             model_instancechoices = form.save(commit=False)
-#             model_instancechoices.timestamp = timezone.now()
 #             model_instancechoices.save()
 #             return redirect('/lista')
 #     else:
@@ -143,3 +187,13 @@ def RelacionalPacienteQuestionario(request, id):
 #         return render(request, "questionario.html", {'form': form})
 
 
+def Salvaquestionario(request, paciente_id):
+    if request.method == 'POST':
+        paciente = Paciente.objects.get(pk=paciente_id)
+        form = MyCommentFormchoices(request.POST)
+        if form.is_valid():
+            form.save()
+            return render_to_response("lista.html", {'form': form})
+    else:
+        form = MyCommentFormchoices()
+    return render(request, 'lista.html',)

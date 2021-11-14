@@ -32,9 +32,9 @@ urlpatterns = [
     path('atualiza/<pk>', PacienteUpdateView.as_view(), name="atualiza_paciente"),
     path('cadastro/exclui/<pk>', PacienteDeleteView.as_view(), name="exclui_paciente"),
     path('cadastro/', PacienteCreateView.as_view(), name="cadastro_paciente"),
-    path('cadastro/<paciente_id>', QuestionarioCreateView.as_view(), name="cadastro_questionario"),
-    #path('questionario/<id>', views.Questionario, name="questionario"),
-    #path('questionario/<paciente_id>', views.RelacionalPacienteQuestionario, name="lista_questionario"),
+    #path('cadastro/<pk>', QuestionarioCreateView.as_view(), name="cadastro_questionario"),
+    #path('cadastro/<paciente_id>', views.Questionariosave, name="questionario"),
+    path('cadastro/<pk>', views.RelacionalPacienteQuestionario, name="lista_questionario"),
     
 
 
