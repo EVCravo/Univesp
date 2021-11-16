@@ -5,7 +5,7 @@ from django import forms
    
 class MyCommentFormchoices(forms.ModelForm):
     class Meta(object):
-        escolha = (('Sim', 'Sim'), ('Não', 'Não'))
+        #escolha = (('Sim', 'Sim'), ('Não', 'Não'))
         model = Questionario
         fields = '__all__'
         

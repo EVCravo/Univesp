@@ -27,19 +27,12 @@ urlpatterns = [
     path('', views.logon, name="logon"),
     path('login', views.loginUser, name="login"),
     path('index/', views.index, name="index"),
-    # path('cadastro/', views.cadastro, name="cadastro"),
     path('lista/', ListaPaciente.as_view(), name="lista_paciente"),
     path('atualiza/<pk>', PacienteUpdateView.as_view(), name="atualiza_paciente"),
     path('cadastro/exclui/<pk>', PacienteDeleteView.as_view(), name="exclui_paciente"),
     path('cadastro/', PacienteCreateView.as_view(), name="cadastro_paciente"),
-    #path('cadastro/<pk>', QuestionarioCreateView.as_view(), name="cadastro_questionario"),
-    #path('cadastro/<paciente_id>', views.Questionariosave, name="questionario"),
-    path('cadastro/<pk>', views.RelacionalPacienteQuestionario, name="lista_questionario"),
-    
-
-
-    # path('lista/', views.lista, name="lista"),
-    # path('questionario/', views.questionario, name="questionario"),
-    # path('questionario/<int:paciente_id>', views.questionario, name="questionario")
+    path('cadastro/<paciente_id>', views.Questionariosave, name="questionario"),
+    #path('cadastro/lista/', ListaPaciente.as_view(), name="lista_paciente"),
+   
     
 ]
