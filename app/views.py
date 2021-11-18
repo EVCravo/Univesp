@@ -95,7 +95,19 @@ class PacienteCreateView(CreateView):
 
         
 
+def Imprimir(request, paciente_id):
+    paciente = Paciente.objects.get(pk=paciente_id)
+    questionario = Questionario.objects.all()
+    
+    context = {
+        'paciente' : paciente,
+        'questionario' : questionario
 
+
+    }
+    print(questionario)
+    
+    return render(request, 'imprimir.html', context=context)
 
     
 
@@ -132,5 +144,3 @@ def Questionariosave(request, paciente_id):
         questionario.save()
         
     return render(request, 'questionario2.html',{'paciente':paciente})
-    
-    
