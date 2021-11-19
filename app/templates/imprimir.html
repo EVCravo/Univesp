@@ -19,7 +19,13 @@
             <br><br>
           </div>
         </div>
-
+        <div class="row">
+          <div class="col-md-10">
+            <label for="inputresp" class="form-label">Paciente: </label>
+            <input type="text" class="form-label" value="{{ paciente }}"disabled>
+          </div>
+        </div>
+        </br></br>
         <div class="row">
           <div class="col-md-10">
             <label for="inputresp" class="form-label">Responsável: </label>
@@ -32,7 +38,7 @@
             1. Seu filho gosta de se balançar, de pular no seu joelho, etc?<br>
             <div class="form-group">
                             
-                        <input type="text" class="form-label" value="{{ paciente.questionario.um }}"disabled>
+                        <input type="text" class="form-label" value="{{ questionario.um }}"disabled>
             </div>
         </div>
         </div>
@@ -42,7 +48,7 @@
             2. Seu filho tem interesse por outras crianças?<br>
             <div class="form-group">
                             
-                        <input type="text" class="form-label" value="{{ questionario }}"disabled>
+                        <input type="text" class="form-label" value="{{ paciente.dois }}"disabled>
             </div>
         </div>
         </div>
@@ -51,7 +57,7 @@
             3. Seu filho gosta de subir em coisas, como escadas ou móveis?<br>
             <div class="form-group">
                             
-                        <input type="text" class="form-label" value="{{ questionario }}"disabled>
+                        <input type="text" class="form-label" value="{{ questionario.tres }}"disabled>
             </div>
           </div>
         </div>
@@ -61,7 +67,7 @@
             4. Seu filho gosta de brincar de esconder e mostrar o rosto ou de esconde-esconde?<br>
             <div class="form-group">
                             
-                        <input type="text" class="form-label" value="{{ questionario }}"disabled>
+                        <input type="text" class="form-label" value="{{ paciente.questionario.quatro }}"disabled>
             </div>
           </div>
         </div>
@@ -72,7 +78,7 @@
             no telefone ou que está cuidando da boneca, ou qualquer outra brincadeira de faz-de-conta?<br>
             <div class="form-group">
                             
-                        <input type="text" class="form-label" value="{{ questionario }}"disabled>
+                        <input type="text" class="form-label" value="{{ paciente.questionario.cinco }}"disabled>
             </div>
           </div>
         </div>
@@ -253,7 +259,7 @@
             23. O seu filho olha para o seu rosto para conferir a sua reação quando vê algo estranho?<br>
             <div class="form-group">
                             
-                        <input type="text" class="form-label" value="{{ questionario }} " disabled>
+                        <input type="text" class="form-label" value="{{ questionario.vintetres }} " disabled>
             </div>
           </div>
         </div>

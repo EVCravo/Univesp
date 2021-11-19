@@ -97,18 +97,12 @@ class PacienteCreateView(CreateView):
 
 def Imprimir(request, paciente_id):
     paciente = Paciente.objects.get(pk=paciente_id)
-    questionario = Questionario.objects.all()
+    questionario = Questionario()
+    questionario.paciente = paciente
+
     
-    context = {
-        'paciente' : paciente,
-        'questionario' : questionario
-
-
-    }
-    print(questionario)
-    
-    return render(request, 'imprimir.html', context=context)
-
+    return render(request, 'imprimir.html', {'paciente' : paciente})
+   
     
 
 
@@ -116,7 +110,6 @@ def Questionariosave(request, paciente_id):
     questionario = Questionario()
     paciente = Paciente.objects.get(pk=paciente_id)
     if request.method == 'POST':
-        print(paciente_id)
         questionario.paciente = paciente
         questionario.um = request.POST.get('um')
         questionario.dois = request.POST.get('dois')
