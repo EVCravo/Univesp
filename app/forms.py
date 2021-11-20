@@ -63,8 +63,11 @@ class MyCommentForm(forms.ModelForm):
     ),
     'cpf': forms.TextInput(
     attrs={
+    'placeholder':'xxx.xxx.xxx-xx',
     'class': 'form-control',
     'type': 'int'
+    
+
     }
     ),
    }
