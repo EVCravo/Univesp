@@ -96,12 +96,14 @@ class PacienteCreateView(CreateView):
         
 
 def Imprimir(request, paciente_id):
-    paciente = Paciente.objects.get(pk=paciente_id)
-    questionario = Questionario()
-    questionario.paciente = paciente
+    questionario = Questionario.objects.get(paciente_id=paciente_id)
+    
+    
+    
+    
 
     
-    return render(request, 'imprimir.html', {'paciente' : paciente})
+    return render(request, 'imprimir.html', {'questionario' : questionario})
    
     
 
