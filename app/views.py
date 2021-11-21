@@ -1,6 +1,6 @@
 
 from re import template
-from django.shortcuts import render, redirect, render_to_response
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, Http404
 # Create your views here.
 from django import forms
