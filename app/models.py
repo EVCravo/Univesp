@@ -30,7 +30,7 @@ class Questionario(models.Model):
     nove = models.CharField("O seu filho alguma vez trouxe objetos para você (pais) para lhe mostrar este objeto?", max_length=10, choices=escolha, blank = True, null = True)
     dez = models.CharField("O seu filho olha para você no olho por mais de um segundo ou dois?", max_length=10, choices=escolha, blank = True, null = True)
     onze = models.CharField("O seu filho já pareceu muito sensível ao barulho (ex. tapando os ouvidos)?", max_length=10, choices=escolha, blank = True, null = True)
-    dose = models.CharField("O seu filho sorri em resposta ao seu rosto ou ao seu sorriso?", max_length=10, choices=escolha, blank = True, null = True)
+    doze = models.CharField("O seu filho sorri em resposta ao seu rosto ou ao seu sorriso?", max_length=10, choices=escolha, blank = True, null = True)
     treze = models.CharField("O seu filho imita você? (ex. você faz expressões/caretas e seu filho imita)?", max_length=10, choices=escolha, blank = True, null = True)
     quatorze = models.CharField("O seu filho responde quando você chama ele pelo nome?", max_length=10, choices=escolha, blank = True, null = True)
     quinze = models.CharField("Se você aponta um brinquedo do outro lado do cômodo, o seu filho olha para ele?", max_length=10, choices=escolha, blank = True, null = True)
