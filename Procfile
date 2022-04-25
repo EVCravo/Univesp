@@ -1,0 +1,1 @@
+web: gunicorn univesp.wsgi --log-file -
