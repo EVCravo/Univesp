@@ -3,15 +3,19 @@ from django.db import models
 # Create your models here.
 class Paciente(models.Model):
     prontuario = models.CharField("Prontuario", max_length=255, blank = True, null = True)
-    name = models.CharField("Nome", max_length=255, blank = True, null = True)
-    responsavel = models.CharField("responsavel", max_length=255, blank = True, null = True)
-    idade = models.DateField('idade', blank = True, null = True)
-    address = models.CharField("Endereço", max_length=255, blank = True, null = True)
-    email = models.EmailField()
-    cpf = models.CharField("cpf", max_length=255, blank = True, null = True)
+    name = models.CharField("Nome", max_length=255, blank = False, null = True)
+    responsavel = models.CharField("responsavel", max_length=255, blank = False, null = True)
+    idade = models.DateField('idade', blank = False, null = True)
+    rua = models.CharField("rua", max_length=255, blank = False, null = True)
+    email = models.EmailField("email", max_length=255, blank = True, null = True)
+    cpf = models.CharField("cpf", max_length=255, blank = False, null = True)
     message = models.TextField("mensagem",  blank=True, null=True)
     createdAt = models.DateTimeField("Criado em", auto_now_add=True)
-    phone = models.CharField('Telefone', max_length=12, blank = True, null = True)
+    phone = models.CharField('Telefone', max_length=12, blank = False, null = True)
+    cep = models.CharField("cep", max_length=255, blank = True, null = True)
+    bairro = models.CharField("bairro", max_length=50, blank = True, null = True)
+    cidade = models.CharField("cidade", max_length=50, blank = False, null = True)
+
 
     def __str__(self):
         return self.name

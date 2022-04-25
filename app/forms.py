@@ -14,7 +14,7 @@ class MyCommentFormchoices(forms.ModelForm):
 class MyCommentForm(forms.ModelForm):
     class Meta(object):
         model = Paciente
-        fields = ['name', 'email', 'message', 'address', 'responsavel','idade','phone','prontuario', 'name','cpf']
+        fields = ['name', 'email', 'message', 'rua','responsavel','idade','phone','prontuario', 'name','cpf','cep', 'bairro','cidade']
         widgets = {
     'name': forms.TextInput(
     attrs={
@@ -32,9 +32,14 @@ class MyCommentForm(forms.ModelForm):
      'type': 'date'
     }
     ),
-    'address': forms.TextInput(
+    'rua': forms.TextInput(
     attrs={
-     'class': 'form-control'
+     'class': 'form-control',
+     'type': 'text',
+     'id': 'rua',
+     'name': 'rua',
+     'size': '60',
+     'value':"",
      }
     ),
     'phone': forms.TextInput(
@@ -66,9 +71,37 @@ class MyCommentForm(forms.ModelForm):
     'placeholder':'xxx.xxx.xxx-xx',
     'class': 'form-control',
     'type': 'int'
-    
-
     }
+    ),
+    'cep': forms.TextInput(
+    attrs={
+     'class': 'form-control',
+     'type': 'text',
+     'placeholder': '00000-000',
+     'size' : "10",
+     'maxlength' : "9",
+     'id': 'cep',
+     'name': 'cep',
+     
+     }
+    ),
+    'bairro': forms.TextInput(
+    attrs={
+     'class': 'form-control',
+     'type': 'text',
+     'id': 'bairro',
+     'name': 'bairro',
+     'size': '50',
+     }
+    ),
+    'cidade': forms.TextInput(
+    attrs={
+     'class': 'form-control',
+     'type': 'text',
+     'id': 'cidade',
+     'name': 'cidade',
+     'size': '50',
+     }
     ),
    }
 

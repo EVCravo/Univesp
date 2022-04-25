@@ -124,7 +124,7 @@ def Questionariosave(request, paciente_id):
         questionario.nove = request.POST.get('nove')
         questionario.dez = request.POST.get('dez')
         questionario.onze = request.POST.get('onze')
-        questionario.dose = request.POST.get('dose')
+        questionario.doze = request.POST.get('dose')
         questionario.treze = request.POST.get('treze')
         questionario.quatorze = request.POST.get('quatorze')
         questionario.quinze = request.POST.get('quinze')
