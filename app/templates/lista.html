@@ -18,6 +18,7 @@
                             <th><center>Nome</center></th>
                             <th><center>Responsavel</center></th>
                             <th><center>Prontuário</center></th>
+                            <th><center>Foto</center></th>
                             <th><center>Questionário</center></th>
                             <th><center>Atualizar</center></th>
                             <th><center>Excluir</center></th>
@@ -29,6 +30,7 @@
                             <td> {{ p.name }}</td>
                             <td> {{ p.responsavel }}</td>
                             <td> {{ p.prontuario }}</td>
+                            <td> {{ p.foto }}</td>
                             <td> <a href="../cadastro/{{p.id}}"><button type="button"  class="btn btn-primary  btn-sm" >Questionário</button></a></td>
                             <td> <a href="../../atualiza/{{p.id}}"><button type="button"  class="btn btn-success  btn-sm" >Atualizar</button></a> </td>
                             <td> <a href="../cadastro/exclui/{{p.id}}"><button type="button"  class="btn btn-danger  btn-sm" >Excluir</button></a> </td>

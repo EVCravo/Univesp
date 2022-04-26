@@ -1,7 +1,26 @@
+from attr import attrs
 from django.forms import ModelForm
 from django.forms.widgets import RadioSelect
 from app.models import Paciente, Questionario
 from django import forms
+
+# class FotoForm(forms.Form):
+#     model = FotoModel
+#     foto = forms.ImageField(
+#         required=False,
+#         widget=forms.ClearableFileInput(attrs={'multiple': True})
+#     )
+
+#     class Meta:
+#         model = Paciente
+#         fields = ('foto')
+
+#     def __init__(self, *args, **kwargs):
+#         super(FotoForm, self).__init__(*args, **kwargs)
+#         for field_name, field in self.fields.items():
+#             field.widget.attrs['class'] = 'form-control'
+#         self.fields['photo'].widget.attrs['class'] = None
+
    
 class MyCommentFormchoices(forms.ModelForm):
     class Meta(object):
@@ -14,11 +33,15 @@ class MyCommentFormchoices(forms.ModelForm):
 class MyCommentForm(forms.ModelForm):
     class Meta(object):
         model = Paciente
-        fields = ['name', 'email', 'message', 'rua','responsavel','idade','phone','prontuario', 'name','cpf','cep', 'bairro','cidade']
+        fields = ['name', 'email', 'message', 'rua','responsavel','idade','phone','prontuario', 'name','cpf','cep', 'bairro','cidade',]
         widgets = {
+
+    
+
     'name': forms.TextInput(
     attrs={
-     'class': 'form-control'
+     'class': 'form-control',
+     'pattern':"[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$"
      }
     ),
     'responsavel': forms.TextInput(
@@ -63,7 +86,9 @@ class MyCommentForm(forms.ModelForm):
     'prontuario': forms.TextInput(
     attrs={
     'class': 'form-control',
-    'type': 'int'
+    'type': 'int',
+    'name': 'prontuario',
+    'id' : 'prontuario'
     }
     ),
     'cpf': forms.TextInput(
@@ -104,5 +129,6 @@ class MyCommentForm(forms.ModelForm):
      }
     ),
    }
+    
 
   

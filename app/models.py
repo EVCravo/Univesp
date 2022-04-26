@@ -1,7 +1,10 @@
+from distutils.command.upload import upload
 from django.db import models
 
 # Create your models here.
+
 class Paciente(models.Model):
+    foto = models.ImageField("foto", upload_to='',blank = True, null = True)
     prontuario = models.CharField("Prontuario", max_length=255, blank = True, null = True)
     name = models.CharField("Nome", max_length=255, blank = False, null = True)
     responsavel = models.CharField("responsavel", max_length=255, blank = False, null = True)
@@ -13,9 +16,10 @@ class Paciente(models.Model):
     createdAt = models.DateTimeField("Criado em", auto_now_add=True)
     phone = models.CharField('Telefone', max_length=12, blank = False, null = True)
     cep = models.CharField("cep", max_length=255, blank = True, null = True)
-    bairro = models.CharField("bairro", max_length=50, blank = True, null = True)
-    cidade = models.CharField("cidade", max_length=50, blank = False, null = True)
-
+    bairro = models.CharField("bairro", max_length=255, blank = True, null = True)
+    cidade = models.CharField("cidade", max_length=255, blank = False, null = True)
+    
+    
 
     def __str__(self):
         return self.name
@@ -53,6 +57,11 @@ class Questionario(models.Model):
         return self.paciente.name
 
 
+# class FotoModel(models.Model):
+#     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
+#     foto = models.ImageField(upload_to = '')
 
+#     def __str__(self):
+#         return self.paciente.name
 
      

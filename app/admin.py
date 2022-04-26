@@ -4,3 +4,5 @@ from .models import Paciente, Questionario
 admin.site.register(Paciente),
 
 admin.site.register(Questionario)
+
+#admin.site.register(FotoModel)

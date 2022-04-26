@@ -12,6 +12,9 @@ from .models import Paciente, Questionario
 from django.views.generic import ListView
 from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
+from django.http import HttpResponseForbidden
+from django.core.files.storage import FileSystemStorage
+#from app.functions import SubirFoto
 
 
 
@@ -97,16 +100,30 @@ class PacienteCreateView(CreateView):
 
 def Imprimir(request, paciente_id):
     questionario = Questionario.objects.get(paciente_id=paciente_id)
-    
-    
-    
-    
-
-    
     return render(request, 'imprimir.html', {'questionario' : questionario})
    
     
+def SalvarFoto(request):
+    if request.method == 'POST':
+        form = MyCommentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_paciente')
+        else:
+            form = MyCommentForm()
+        return render(request,'cadastro2.html',{'form':form})
 
+# def photo_create(request):
+#     template_name = 'cadastro2.html'
+#     form = FotoForm(request.POST or None)
+
+#     if request.method == 'POST':
+#         foto = request.FILES.getlist('photo')  # pega vários arquivos.
+
+#         if form.is_valid():
+#             paciente = form.save()
+#     context = {'form': form}
+#     return render(request, template_name, context)
 
 def Questionariosave(request, paciente_id):
     questionario = Questionario()
@@ -139,3 +156,16 @@ def Questionariosave(request, paciente_id):
         questionario.save()
         
     return render(request, 'questionario2.html',{'paciente':paciente})
+
+
+
+
+# def upload_pic(request):
+#     if request.method == 'POST':
+#         form = ImageUploadForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             m = ExampleModel.objects.get(pk=id)
+#             m.model_pic = form.cleaned_data['image']
+#             m.save()
+#             return HttpResponse('image upload success')
+#     return HttpResponseForbidden('allowed only via POST')

@@ -13,10 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from xml.dom.minidom import Document
+from django.conf import settings
+from django.conf.urls.static import static
 from app import views
 from django.contrib import admin
-from django.urls import path
-from app.views import ListaPaciente, PacienteUpdateView, PacienteDeleteView, PacienteCreateView, QuestionarioCreateView
+from django.urls import URLPattern, path
+from app.views import  ListaPaciente, PacienteUpdateView, PacienteDeleteView, PacienteCreateView, QuestionarioCreateView
 
 
 
@@ -33,8 +36,16 @@ urlpatterns = [
     path('cadastro/', PacienteCreateView.as_view(), name="cadastro_paciente"),
     path('cadastro/<paciente_id>', views.Questionariosave, name="questionario"),
     path('imprimir/<paciente_id>', views.Imprimir, name="imprimir"),
+    path('cadastro/' , views.SalvarFoto, name="foto"),
 
     #path('cadastro/lista/', ListaPaciente.as_view(), name="lista_paciente"),
    
     
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT,
+    )
+
