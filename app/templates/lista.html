@@ -1,18 +1,47 @@
 {% extends 'base.html' %}
 {% block contentlista %}
 {% load static %}   
-
-
-
-
-<div class="container">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css"> 
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
+<script>  $(document).ready( function () {
+    $('#myTable').DataTable({
+        "ordering": true,
+        "paging": true,
+        "searching": true,
+        "oLanguage": {
+            "sEmptyTable": "Nenhum registro encontrado na tabela",
+            "sInfo": "Mostrar _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrar 0 até 0 de 0 Registros",
+            "sInfoFiltered": "(Filtrar de _MAX_ total registros)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "Mostrar _MENU_ registros por pagina",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar",
+            "oPaginate": {
+                "sNext": "Proximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Ultimo"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
+        }
+    });
+        } );
+</script>
+<div class="container" >
         <div class="card shadow mb-4">
         <div class="card-header py-3">
             <a href="../cadastro"><button type="button"  class="btn btn-primary  btn-sm" >Cadastrar Paciente</button></a>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered display responsive nowrap text-center" id="my_table" width="100%" cellspacing="0">
+                <table class="myTable  table table-bordered display responsive nowrap text-center " id="myTable" width="100%" cellspacing="0" >
                     <thead>
                         <tr>
                             <th><center>Nome</center></th>
