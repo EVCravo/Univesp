@@ -36,16 +36,16 @@ urlpatterns = [
     path('cadastro/', PacienteCreateView.as_view(), name="cadastro_paciente"),
     path('cadastro/<paciente_id>', views.Questionariosave, name="questionario"),
     path('imprimir/<paciente_id>', views.Imprimir, name="imprimir"),
-    path('cadastro/' , views.SalvarFoto, name="foto"),
+    #path('cadastro/' , views.SalvarFoto, name="foto"),
 
     #path('cadastro/lista/', ListaPaciente.as_view(), name="lista_paciente"),
    
     
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT,
-    )
+# if settings.DEBUG:
+#     urlpatterns += static(
+#         settings.MEDIA_URL,
+#         document_root=settings.MEDIA_ROOT,
+#     )
 

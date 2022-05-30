@@ -33,7 +33,7 @@ class MyCommentFormchoices(forms.ModelForm):
 class MyCommentForm(forms.ModelForm):
     class Meta(object):
         model = Paciente
-        fields = ['name', 'email', 'message', 'rua','responsavel','idade','phone','prontuario', 'name','cpf','cep', 'bairro','cidade',]
+        fields = ['name', 'email', 'message', 'rua','responsavel','idade','phone','prontuario', 'name','cpf','cep', 'bairro','cidade','foto']
         widgets = {
 
     

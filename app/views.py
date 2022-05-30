@@ -105,13 +105,19 @@ def Imprimir(request, paciente_id):
     
 def SalvarFoto(request):
     if request.method == 'POST':
+        post = Paciente.objects.get(all)
         form = MyCommentForm(request.POST, request.FILES)
+        context = {
+            'form': form,
+            'post': post
+                   
+                   }
         if form.is_valid():
             form.save()
             return redirect('lista_paciente')
         else:
             form = MyCommentForm()
-        return render(request,'cadastro2.html',{'form':form})
+        return render(request,'cadastro2.html', context)
 
 # def photo_create(request):
 #     template_name = 'cadastro2.html'

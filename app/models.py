@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Paciente(models.Model):
-    foto = models.ImageField("foto", upload_to='',blank = True, null = True)
+    foto = models.ImageField("foto", upload_to='images/',blank = True, null = True)
     prontuario = models.CharField("Prontuario", max_length=255, blank = True, null = True)
     name = models.CharField("Nome", max_length=255, blank = False, null = True)
     responsavel = models.CharField("responsavel", max_length=255, blank = False, null = True)
