@@ -1,4 +1,4 @@
-from attr import attrs
+
 from django.forms import ModelForm
 from django.forms.widgets import RadioSelect
 from app.models import Paciente, Questionario

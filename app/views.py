@@ -27,11 +27,11 @@ def loginUser(request):
             if user.is_active:
                 login(request, user)
                 return lista(request)
-    return render(request, 'logon.html', {})  
+    return render(request, 'lista.html', {})  
 
 
 def logon(request):
-    return render(request, "logon.html", {})
+    return render(request, "login2.html", {})
 
 
 @login_required(login_url='../logon')
