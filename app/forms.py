@@ -128,6 +128,7 @@ class MyCommentForm(forms.ModelForm):
      'size': '50',
      }
     ),
+    
    }
     
 

@@ -70,6 +70,8 @@
                                 CPF :</label>
                             {{ form.cpf }}
                         </div>
+                       
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
@@ -77,17 +79,13 @@
                                 Observações: </label>
                             {{ form.message }}
                         </div>
-                        <div class="form-group">
-                            <label for="foto">
-                                Insera sua foto: </label>
-                            {{ form.foto }}
-                        </div>
+                        
                        
                         <div class="form-group">
                             <label for="foto">
                                 Insera sua foto: </label>
                             
-                            <img src="{{ Paciente.foto }}" width=500>
+                                {{ form.foto }}
                         </div>
                         
                     </div>

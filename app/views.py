@@ -14,6 +14,7 @@ from django.views.generic.edit import DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
 from django.http import HttpResponseForbidden
 from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponseRedirect
 #from app.functions import SubirFoto
 
 
@@ -78,7 +79,7 @@ class PacienteDeleteView(DeleteView):
 
 class QuestionarioCreateView(CreateView):
     template_name = 'questionario.html'
-    model = Questionario
+    model = Questionario, Paciente
     fiels = '__all__'
     form_class = MyCommentFormchoices
     success_url = reverse_lazy('lista_paciente')
@@ -160,6 +161,7 @@ def Questionariosave(request, paciente_id):
         questionario.vintedois = request.POST.get('vintedois')
         questionario.vintetres = request.POST.get('vintetres')  
         questionario.save()
+        return redirect('lista_paciente')
         
     return render(request, 'questionario2.html',{'paciente':paciente})
 

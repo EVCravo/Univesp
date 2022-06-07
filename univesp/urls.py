@@ -35,6 +35,9 @@ urlpatterns = [
     path('cadastro/exclui/<pk>', PacienteDeleteView.as_view(), name="exclui_paciente"),
     path('cadastro/', PacienteCreateView.as_view(), name="cadastro_paciente"),
     path('cadastro/<paciente_id>', views.Questionariosave, name="questionario"),
+    #path('cadastro/<paciente_id>', QuestionarioCreateView.as_view(), name="cadastro_paciente"),
+    
+    
     path('imprimir/<paciente_id>', views.Imprimir, name="imprimir"),
     #path('cadastro/' , views.SalvarFoto, name="foto"),
 

@@ -1,7 +1,7 @@
 from distutils.command.upload import upload
 from django.db import models
 
-# Create your models here.
+# Banco de dados Pacinete
 
 class Paciente(models.Model):
     foto = models.ImageField("foto", upload_to='images/',blank = True, null = True)
@@ -19,11 +19,17 @@ class Paciente(models.Model):
     bairro = models.CharField("bairro", max_length=255, blank = True, null = True)
     cidade = models.CharField("cidade", max_length=255, blank = False, null = True)
     
-    
+    @property
+    def get_photo_url(self):
+        if self.foto and hasattr(self.foto, 'url'):
+            return self.foto.url
+        else:
+            return "/media/images/user.jpg"
 
     def __str__(self):
         return self.name
 
+# Banco de Dados do questionario vinculado com BD Paciente
 class Questionario(models.Model):
     escolha = (('Sim', 'Sim'), ('Não', 'Não'))
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
