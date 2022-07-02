@@ -88,10 +88,11 @@ DATABASES = {
     # postgres://retrridacqfosp:522465a1c6ee05602afdcc1cae5aa4bec10a8960685c41b8dbf9c319a502e6e0@ec2-23-23-151-191.compute-1.amazonaws.com:5432/dcqh7lvdsiiil0
     #}
     
-# DATABASES = { 'default': dj_database_url.config() }
-# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-# DEBUG = False
+DATABASES['default'] = dj_database_url.parse('postgres://univesp-app.herokuapp.com/', conn_max_age=600)
+
+
     
+
     
 # DATABASES = {
 #     'default': {
