@@ -28,7 +28,7 @@ SECRET_KEY = '66qn%))hpa+gs@q(!8-7#!p6+3g3r=7j&jb0q7ron=t&@1wo-i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://cmraprojeto.herokuapp.com/']
+ALLOWED_HOSTS = ['https://univesp-app.herokuapp.com/']
 
 
 # Application definition
@@ -88,9 +88,9 @@ DATABASES = {
     # postgres://retrridacqfosp:522465a1c6ee05602afdcc1cae5aa4bec10a8960685c41b8dbf9c319a502e6e0@ec2-23-23-151-191.compute-1.amazonaws.com:5432/dcqh7lvdsiiil0
     #}
     
-DATABASES = { 'default': dj_database_url.config() }
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-DEBUG = False
+# DATABASES = { 'default': dj_database_url.config() }
+# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+# DEBUG = False
     
     
 # DATABASES = {
@@ -152,11 +152,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 django_heroku.settings(locals())
-
-SITE_URL = 'https://univesp-app.herokuapp.com/'
-
-EMAIL_HOST = os.environ.get('EMAIL_HOST')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = os.environ.get('EMAIL_PORT')
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
