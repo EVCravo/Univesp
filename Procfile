@@ -1,1 +1,1 @@
-web: gunicorn univesp.urls
+web: gunicorn univesp.wsgi --log-file -

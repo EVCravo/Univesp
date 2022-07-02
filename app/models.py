@@ -4,6 +4,7 @@ from django.db import models
 # Banco de dados Pacinete
 
 class Paciente(models.Model):
+    id = models.AutoField(primary_key=True)
     foto = models.ImageField("foto", upload_to='images/',blank = True, null = True)
     prontuario = models.CharField("Prontuario", max_length=255, blank = True, null = True)
     name = models.CharField("Nome", max_length=255, blank = False, null = True)
@@ -33,6 +34,7 @@ class Paciente(models.Model):
 class Questionario(models.Model):
     escolha = (('Sim', 'Sim'), ('Não', 'Não'))
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
+    id = models.AutoField(primary_key=True)
     um = models.CharField("Seu filho gosta de se balançar, de pular no seu joelho, etc?", max_length=10, choices=escolha, blank = True, null = True)
     dois = models.CharField("Seu filho tem interesse por outras crianças?", max_length=10, choices=escolha, blank = True, null = True)
     tres = models.CharField("Seu filho gosta de subir em coisas, como escadas ou móveis?", max_length=10, choices=escolha, blank = True, null = True)

@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 import os
-
+import django_heroku
 import psycopg2
 
 
@@ -27,7 +27,7 @@ SECRET_KEY = '66qn%))hpa+gs@q(!8-7#!p6+3g3r=7j&jb0q7ron=t&@1wo-i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://cmraunivesp.herokuapp.com/']
+ALLOWED_HOSTS = ['https://cmraprojeto.herokuapp.com/']
 
 
 # Application definition
@@ -139,5 +139,5 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-import django_heroku
+
 django_heroku.settings(locals())
