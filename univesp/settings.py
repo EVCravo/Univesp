@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import django_heroku
 import psycopg2
+import dj_database_url
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -79,9 +80,19 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        
         }
 }
 
+# DATABASE_URL = {
+    # postgres://retrridacqfosp:522465a1c6ee05602afdcc1cae5aa4bec10a8960685c41b8dbf9c319a502e6e0@ec2-23-23-151-191.compute-1.amazonaws.com:5432/dcqh7lvdsiiil0
+    #}
+    
+DATABASES = { 'default': dj_database_url.config() }
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+DEBUG = False
+    
+    
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -141,3 +152,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 django_heroku.settings(locals())
+
+SITE_URL = 'https://univesp-app.herokuapp.com/'
+
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.environ.get('EMAIL_PORT')
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
