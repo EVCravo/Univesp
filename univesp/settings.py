@@ -92,7 +92,7 @@ DATABASES = {
 
 DATABASES = { 'default': dj_database_url.config() }
 SECRET_KEY = 'jorge123'
-DEBUG = False
+DEBUG = True
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 7894561
 
